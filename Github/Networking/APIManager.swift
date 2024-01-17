@@ -20,12 +20,6 @@ class APIManager {
             let request = try call.urlRequest(baseURL: APIManager.baseURL)
             return URLSession.shared.dataTaskPublisher(for: request)
                 .tryMap { output in
-                    
-                    if let responseString = String(data: output.data, encoding: .utf8) {
-                                            print("Response Data: \(responseString)")
-                                        } else {
-                                            print("Unable to convert response data to string.")
-                                        }
                     guard let httpResponse = output.response as? HTTPURLResponse else {
                         throw URLError(.badServerResponse)
                     }
@@ -40,7 +34,6 @@ class APIManager {
 
                 .eraseToAnyPublisher()
         } catch {
-            print("Error is", error.localizedDescription)
             return Fail(error: error).eraseToAnyPublisher()
         }
     }
@@ -56,8 +49,6 @@ class APIManager {
             dictionary[components[1]] = cleanPath
         })
         
-        print("dictionary", dictionary)
-
         if let nextPagePath = dictionary["rel=\"next\""] {
             return Pagination(nextPageUrl: nextPagePath)
         }

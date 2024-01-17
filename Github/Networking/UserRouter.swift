@@ -21,8 +21,6 @@ enum UserRouter: APICall {
         case .detail(let userName): return "/users/"+userName
         case .nextUsers(let url), .repoList(let url): return url
         case .developmentLanguage(let userName, let repoName):
-            
-            print("/repos/\(userName)/alg-materials/languages")
             return "/repos/\(userName)/\(repoName)/languages"
             
         }

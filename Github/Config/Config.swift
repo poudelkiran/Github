@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct Config {
+    static let token = "" // Add your github access token here
+}

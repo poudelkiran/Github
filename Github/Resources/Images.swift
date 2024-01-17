@@ -1,6 +1,6 @@
 //
 //  Imaages.swift
-//  Github
+//  Gihub
 //
 //  Created by FMI-PC-LT-48 on 17/01/2024.
 //

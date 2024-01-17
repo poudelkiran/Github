@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Codable, Equatable, Identifiable {
+struct User: Codable {
     let id: Int
     let userName: String
     let avatar: String
@@ -20,7 +20,6 @@ struct User: Codable, Equatable, Identifiable {
         case repoUrl = "repos_url"
     }
 
-    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         userName = try values.decode(String.self, forKey: .userName)

@@ -7,12 +7,11 @@
 
 import Foundation
 
-struct UserDetail: Codable, Equatable, Identifiable {
+struct UserDetail: Codable {
     let id: Int
     let userName: String
     let avatar: String
     let name: String
-//    let email: String
     let followers: Int
     let following: Int
     let reposUrl: String
@@ -22,7 +21,6 @@ struct UserDetail: Codable, Equatable, Identifiable {
         case avatar = "avatar_url"
         case id
         case name
-//        case email
         case followers
         case following
         case reposUrl = "repos_url"
@@ -34,7 +32,6 @@ struct UserDetail: Codable, Equatable, Identifiable {
         avatar = try values.decode(String.self, forKey: .avatar)
         id = try values.decode(Int.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
-//        email = try values.decode(String.self, forKey: .email)
         followers = try values.decode(Int.self, forKey: .followers)
         following = try values.decode(Int.self, forKey: .following)
         reposUrl = try values.decode(String.self, forKey: .reposUrl)
